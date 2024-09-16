@@ -32,7 +32,7 @@ jobs:
     - name: Push Docker Image
       uses: mr-smithers-excellent/docker-build-push@v6
       with:
-        image: ezzaldin/litserve-inference-api
+        image: ${{ secrets.DOCKER_USER }}/litserve-inference-api
         registry: docker.io
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
