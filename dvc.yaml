@@ -1,6 +1,6 @@
 stages:
   split:
-    cmd: python src/prepare.py
+    cmd: .venv\Scripts\python src/prepare.py
     deps:
     - assets/data/raw/train.csv
     params:
@@ -11,7 +11,7 @@ stages:
     - assets/data/processed/final_test.csv
     - assets/data/processed/final_train.csv
   train:
-    cmd: python src/train.py
+    cmd: .venv\Scripts\python src/train.py
     deps:
     - assets/data/processed/final_train.csv
     - assets/data/processed/final_test.csv
@@ -24,7 +24,7 @@ stages:
     outs:
     - assets/models/model.pkl
   evaluate:
-    cmd: python src/evaluate.py
+    cmd: .venv\Scripts\python src/evaluate.py
     deps:
     - assets/data/processed/final_test.csv
     - assets/models/model.pkl
